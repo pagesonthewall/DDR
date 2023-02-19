@@ -1,0 +1,170 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+}
+
+:root {
+    --font-family-roboto: "Roboto", sans-serif;
+    --font-family-poppins: "Poppins", sans-serif;
+    --focus-color: #ea005e;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-color: #181818;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+:focus {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 3px;
+}
+
+button:focus {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 5px;
+}
+
+button:active {
+    outline: none;
+}
+
+
+/* ? main image */
+#main-image {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 42vw;
+}
+
+#main-image img {
+    width: 100%;
+}
+
+
+/*? logo */
+#logo a {
+    position: absolute;
+    top: 20px;
+    left: calc(42vw + 29vw - 4rem);
+    display: block;
+    padding: 10px;
+}
+
+#logo a img {
+    width: 8rem;
+}
+
+
+/* ? Buttons */
+#buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: absolute;
+    top: 42vh;
+    left: calc(42vw + 29vw - 10em);
+}
+
+.btn {
+    width: 20em;
+    height: 50px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: #08273c 1.95px 1.95px 2.6px;
+    outline: none;
+    background: linear-gradient(0deg, #083855 0%, #1363DF 100%);
+    border: none;
+
+}
+
+.btn:hover {
+    background: linear-gradient(0deg, #1363DF 0%, #083855 100%);
+}
+
+
+/* ? Media query for mobiles */
+@media only screen and (max-width: 575px) {
+    #main-image {
+        display: none;
+    }
+
+    #logo a{
+        left: 50%;
+        margin-left: -2.5rem;
+    }
+
+    #logo a img {
+        width: 5rem;
+    }
+
+    #buttons {
+        left: 50%;
+        margin-left: -10em;
+    }
+}

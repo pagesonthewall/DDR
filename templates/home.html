@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/a8b70d4fae.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="/static/css/home.css?{% now 'U' %}" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- ? Logo -->
+    <div id="logo">
+      <a href="">
+        <img src="/static/images/logosvg.svg" alt="logo" />
+      </a>
+    </div>
+
+    <!-- ? Main heading -->
+    <div id="main-heading">
+      <h1>Update existing records</h1>
+    </div>
+
+    <!--? Search bar -->
+    <div id="search-bar">
+      <h4>Search for a patient:</h4>
+      <div class="wrap">
+        <div class="search">
+          <input type="text" class="searchTerm" placeholder=" ..." />
+          <button type="submit" class="searchButton">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ? Recently added records -->
+    <div id="recently-added">
+      <h4>Recently added patients</h4>
+
+      <div class="recently-added-profiles">
+        {% for patient in patient_info_all %}
+        <div id="login-container">
+          <div class="profile-img">
+            <img src="/media/{{patient.patient_photo}}" alt="profile picture" />
+          </div>
+          <h6>{{patient.name}}</h6>
+          <div class="description">
+            <ul class="description-basic-info">
+              <li><span>Age:</span> {{patient.age}}</li>
+              <li><span> Gender: </span> {{patient.sex}}</li>
+              <li>
+                <span> Last visited: </span> {{ patient.visiting_date | date:'j M, Y' }}
+              </li>
+            </ul>
+
+            <ul class="description-points">
+              <li>{{patient.description}}</li>
+              <li>---------------- point 2 -------------------</li>
+            </ul>
+          </div>
+
+          <div class="profile-footer">
+            <a
+              class="edit-profile"
+              href="/admin/blogs/patient/{{patient.patient_id}}/change/"
+            >
+              <i class="fa-regular fa-pen-to-square"></i>
+              <p>Edit profile</p>
+            </a>
+            <a class="edit-profile" href="/more_details/{{patient.patient_id}}">
+              <p>More details</p>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

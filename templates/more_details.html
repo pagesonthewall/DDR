@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a8b70d4fae.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/static/css/more_details.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- ? More details about the current patient -->
+    <div id="current-patient">
+        <div class="current-patient-profile">
+            <div id="login-container">
+                <div class="profile-img">
+                    <img src="/media/{{current_patient.patient_photo}}" alt="profile picture" />
+                </div>
+                <h6> {{current_patient.name}} </h6>
+                <div class="description">
+                    <ul class="description-basic-info">
+                        <li><span>Age:</span> {{current_patient.age}} </li>
+                        <li><span> Gender: </span> {{current_patient.sex}} </li>
+                        <li><span> Last visited: </span> {{ current_patient.visiting_date | date:'j M, Y' }} </li>
+                    </ul>
+
+                    <ul class="description-points">
+                        <li> {{current_patient.description}} </li>
+                        <li>---------------- point 2 -------------------</li>
+                    </ul>
+                </div>
+
+                <div class="profile-footer">
+                    <a class="edit-profile" href="/admin/blogs/patient/{{patient.patient_id}}/change/">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        <p>Edit profile</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ? Upload eye image form -->
+    <div class="upload-image-form">
+        <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+        <header>Drag & Drop to Upload File</header>
+        <span>OR</span>
+        <form method="post" enctype="multipart/form-data" class="form-buttons">
+            {% csrf_token %}
+            <input type="file" name="myfile" id="image_input" />
+            <button type="submit" class="upload_image_button">Upload File</button>
+        </form>
+    </div>
+
+    <!-- ? Display the uploaded image and show result -->
+    <div id="display-result">
+        <div class="uploaded-image">
+        </div>
+        <h3> {{prediction}} </h3>
+    </div>
+
+
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+    <!-- JavaScript link -->
+    <script src="/static/js/script.js"></script>
+
+
+</body>
+
+</html>

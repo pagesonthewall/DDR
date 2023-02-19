@@ -1,0 +1,44 @@
+
+
+/* to remove the theme name from footer */
+.d-sm-inline {
+    display: none !important;
+}
+
+/* to change the font weight of logo in navbar */
+.font-weight-light {
+    font-weight: 700 !important;
+    padding-left: 20px;
+}
+
+/* to customize the brand logo */
+.elevation-3 {
+    box-shadow: none !important;
+}
+.brand-logo {
+    border-radius: 0;
+    opacity: 1 !important;
+    width: 100px;
+}
+
+/* Home navbar link  */
+.navbar-light .navbar-nav .nav-link {
+    font-weight: 400;
+}
+
+
+/* Sidebar customization  */
+.nav li:nth-child(3) {
+    display: none;
+}
+.nav li:nth-child(4) {
+    display: none;
+}
+.nav li:nth-child(2) {
+    display: none;
+}
+
+.nav li {
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+}
